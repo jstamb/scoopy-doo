@@ -1,25 +1,17 @@
 import React from 'react';
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { WhyChoose } from './components/WhyChoose';
-import { Services } from './components/Services';
-import { ServiceAreas } from './components/ServiceAreas';
-import { CustomerPromise } from './components/CustomerPromise';
-import { Footer } from './components/Footer';
+import { Routes, Route } from 'react-router-dom';
+import { HomePage } from './pages/HomePage';
+import { LocationPage } from './pages/LocationPage';
+import { ServiceAreasIndex } from './pages/ServiceAreasIndex';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#f9f7f2] font-sans text-gray-900">
-      <Navbar />
-      <main>
-        <Hero />
-        <WhyChoose />
-        <Services />
-        <ServiceAreas />
-        <CustomerPromise />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/service-areas" element={<ServiceAreasIndex />} />
+      <Route path="/service-areas/bellingham" element={<ServiceAreasIndex />} />
+      <Route path="/service-areas/bellingham/:slug" element={<LocationPage />} />
+    </Routes>
   );
 }
 
