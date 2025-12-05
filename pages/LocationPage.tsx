@@ -3,7 +3,6 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { Star, Phone, Clock, MapPin, Check, ChevronRight, ArrowLeft } from 'lucide-react';
 import { getLocationBySlug, Location } from '../data/locations';
 import { SEO } from '../components/SEO';
-import { Button } from '../components/Button';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { LINKS, BRAND_COLORS } from '../constants';
@@ -54,7 +53,12 @@ export const LocationPage: React.FC = () => {
                 {location.subheadline}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                <Button className="shadow-lg text-lg px-8 py-4">{location.heroCta}</Button>
+                <a
+                  href={LINKS.subscribe}
+                  className="inline-flex items-center justify-center bg-action text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-action/90 transition-colors shadow-lg"
+                >
+                  {location.heroCta}
+                </a>
                 <a
                   href={LINKS.phoneHref}
                   className="inline-flex items-center justify-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors"
@@ -290,9 +294,12 @@ export const LocationPage: React.FC = () => {
                 <Phone size={20} />
                 {location.phone}
               </a>
-              <Button className="bg-white text-primary hover:bg-gray-100">
+              <a
+                href={LINKS.subscribe}
+                className="inline-flex items-center justify-center bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-primary/90 transition-colors"
+              >
                 {location.heroCta}
-              </Button>
+              </a>
             </div>
 
             <div className="flex items-center justify-center gap-6 text-primary/80 text-sm">
